@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    <title>Post: Detalle</title>    
+{% endblock titulo %}
+        
+{% block contenido %}
+<br>
+<center>
+  <img src="{{ post.imagen.url }}" class="img-fluid rounded-start" alt="falta_imagen" width="940px">
+</center>
+<br>
+<h1>{{ post.titulo }}</h1>
+<h4>{{ post.fecha_creacion }}</h4>
+<br>
+<p>{{ post.cuerpo }}</p>
+<br>
+{% if user.is_authenticated %}
+<form action="{% url 'posts:comentar' %}" method="POST">
+  {% csrf_token %}
+  <div class="mb-3">
+    <!--<textarea name="comentario" id="" cols="30" rows="10" required></textarea>-->
+    <label for="exampleFormControlTextarea1" class="form-label">Dejanos tu comentario:</label>
+    <textarea name="comentario" required class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+    <input type="text" name="id_post" value="{{ post.id }}" hidden="">
+    <input type="submit" class="btn btn-primary btn-lg" value="Comentar">
+</form>
+{% endif %}
+<br>
+
+  <div class="comentarios-container">
+  {% for comentario in post.comentarios_realizados %}
+    <div class="comentarios">  
+      <p class="fecha">{{ comentario.fecha_comentacion }}</p>
+      <p class="usuario">{{ comentario.usuario }} comento</p>
+      <p class="texto">{{ comentario.texto }}</p>
+      {% if user.is_authenticated and user.id == comentario.usuario_id or user.id == user.is_staff %}
+        <a class="btn btn-danger btn-lg" href="{% url 'posts:borrar_comentario' comentario.pk %}">Borrar</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'posts:modificar_comentario' comentario.pk %}">Modificar</a>
+      {% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+<!--{% for post in posteos %}    
+    <br>            
+<div class="container">    
+<div class="card mb-3" style="max-width: 1080px;">
+    <div class="row g-0">
+      <div class="col-md-2">
+        <img src="{{ post.imagen.url }}" class="img-fluid rounded-start" alt="falta_imagen">
+        
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.titulo }}</h5>
+          <p class="card-text">{{ post.cuerpo|truncatechars:30 }}</p>
+          <p class="card-text"><small class="text-muted">{{ post.fecha_creacion }}</small></p>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  {% endfor %}-->       
+{% endblock contenido %}

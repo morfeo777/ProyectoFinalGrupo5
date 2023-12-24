@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    <title>Agregar Post</title>    
+{% endblock titulo %}
+        
+{% block contenido %}
+<br>
+
+<form  method="POST">
+  {% csrf_token %}
+  <input type="text" name="post_titulo" id="" required>
+  <textarea name="post_cuerpo" id="" cols="30" rows="10" required></textarea>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Categorias
+    
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">    
+      
+      {% for categoria in categorias %}        
+        <li><a class="dropdown-item" href="?id={{categoria.id}}">{{ categoria.nombre }}</a></li>
+      {% endfor %}
+    </ul>
+  </button>
+  </div>   
+  <input type="submit" value="Agregar Post">
+</form>
+
+
+
+
+
+
+<br>
+
+
+
+<!--<div>
+  {% for comentario in post.comentarios_realizados %}
+      <p>{{ comentario.fecha_comentacion }}</p>
+      <p>{{ comentario.usuario }} comento</p>
+      <p>{{ comentario.texto }}</p>
+      {% if user.is_authenticated and user.id == comentario.usuario_id or user.id == user.is_staff %}
+        <a href="{% url 'posts:borrar_comentario' comentario.pk %}">Borrar</a>
+        <a href="{% url 'posts:modificar_comentario' comentario.pk %}">Modificar</a>
+      {% endif %}
+  {% endfor %}
+</div>-->      
+{% endblock contenido %}

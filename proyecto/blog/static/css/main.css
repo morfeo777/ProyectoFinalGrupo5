@@ -1,0 +1,218 @@
+body{
+    background-color: rgb(8, 8, 8);
+	color: white;
+
+    #logout-form {
+        display: inline;
+    }
+    /*  #logout-form button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        text-decoration: underline;
+      }*/
+	
+	  .comentarios {
+		margin: auto;
+		border: 1px solid white;
+		padding: 10px;
+		margin-bottom: 10px;
+	
+	}
+	
+	.texto {
+		margin-left: 21px;
+	}
+	
+	.usuario {
+		font-weight: bold;
+		font-size: small;
+		color: rgb(193, 193, 238);
+	}
+	
+	.fecha {
+		color: slategrey;
+		font-size: small;
+	}
+      .Navbar{
+        position: fixed;
+    } 
+    .imagen-logo {
+        height: 120px;
+        width: 220px;
+        position: relative;
+        top: -30px;
+        right: 80px;
+        display: grid;
+        place-items: center;
+    }
+    
+    .navbar-brand{
+        height: 70px;
+    }
+    
+    .nav-item a{
+        text-decoration-color: white;
+    }
+    .prueba{
+        display: inline;
+        color: aliceblue;
+    }
+
+    /*PIE DE PAGINA*/
+
+.pie-pagina{
+	width: 100%;
+	background-color: #0a141d;
+}
+
+.pie-pagina .grupo-1{
+	width: 100%;
+	max-width: 1200px;
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 50px;
+	padding: 45px 0px;
+}
+
+.pie-pagina .grupo-1 .box figure{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pie-pagina .grupo-1 .box img{
+	width: 250px;
+	height: auto;
+}
+
+.pie-pagina .grupo-1 .box h2{
+	color: #fff;
+	margin-bottom: 25px;
+	font-size: 20px;
+}
+
+.pie-pagina .grupo-1 .box p{
+	color: #efefef;
+	margin-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .red-social a{
+	display: inline-block;
+	text-decoration: none;
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+	color: #fff;
+	margin-right: 10px;
+	background-color: #0d2033;
+	text-align: center;
+	transition: all 300ms ease;
+}
+
+.pie-pagina .grupo-1 .red-social a:hover{
+	color: aqua;
+}
+
+.pie-pagina .grupo-2{
+	background-color: #0a1a2a;
+	padding: 15px 10px;
+	text-align: center;
+	color: #fff;
+}
+
+.container_posteos_home{
+	height: 220vh;
+	background-color: #f8f8ec;
+	border-style: solid;
+	border-width: 10px 0px 0px 0px;
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	justify-content: left;
+}
+
+.container_posteos_home h2{
+	color: dark;
+}
+.container_acercade{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+
+.container_acercade .box_acercade{
+	width: 90vw;
+	height: 70vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	background-color: black;	
+}
+
+.container_acercade .grupo1_acercade{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: left;
+}
+
+.grupo1_acercade h1{
+	position: relative;
+	width: 320px;
+	color: #222;
+}
+
+.grupo1_acercade h1::before{
+	content: attr(data-text);
+	position: absolute;
+	color: #fff;
+	width: 350px;
+	overflow: hidden;
+	white-space: nowrap;
+	border-right: 4px solid #fff;
+	animation: animation 6s linear infinite;
+}
+
+@keyframes animation
+{
+	0%,10%,100%
+	{
+		width: 0;
+	}
+	70%, 90%
+	{
+		width: 100%;
+	}
+}
+
+.container_acercade .grupo1_acercade p{
+	color: whitesmoke;
+}
+
+.container_acercade .grupo2_acercade{
+	width: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container_acercade .grupo2_acercade img{
+	width: 480px;
+	height: 270px;
+	transition: 0.5s;
+}
+
+.container_acercade .grupo2_acercade img:hover{
+	transform: scale(1.1);
+}
+
+}

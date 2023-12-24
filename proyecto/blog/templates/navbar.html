@@ -1,0 +1,37 @@
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="{% url 'posts:home_posts' %}" class="nav-link px-2 text-secondary">Inicio</a></li>
+          <li><a href="{% url 'posts:post_realizado' %}" class="nav-link px-2 text-white">Posteos</a></li>
+          <li><a href="{% url 'contacto' %}" class="nav-link px-2 text-white">Pricing</a></li>
+          <li><a href="{% url 'agregar_post' %}" class="nav-link px-2 text-white">Agregar Post</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+        </ul>
+
+        <!--<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+        </form>-->
+
+        <div class="text-end">
+          {% if user.is_authenticated %}
+            Bienvenido {{ user.username }}            
+            <form id="logout-form" method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-outline-light me-2">Cerrar Sesion</button>
+            </form>
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <!--<button type="button" class="btn btn-outline-light me-2"><a href="{% url 'logout' %}" class="nav-link px-2 text-white">Cerrar Sesion</a></button>-->            
+            
+            {% else %}
+            <button type="button" class="btn btn-outline-light me-2"><a href="{% url 'login' %}" class="nav-link px-2 text-white">Iniciar Sesion</a></button>
+            <button type="button" class="btn btn-warning"><a href="{% url 'usuarios:registro' %}" class="nav-link px-2 text-white">Registrarse</a></button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
